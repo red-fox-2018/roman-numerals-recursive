@@ -1,0 +1,22 @@
+FUNCTION toRoman(NUMBER: num)
+
+  STORE arabicNum TO [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000]
+  STORE romanNum TO [I, IV, V, IX, X, XL, L, XC, C, CD, D, CM, M]
+
+  STORE i TO arabicNum length -1
+  STORE result TO empty string
+
+  IF num less than 1
+    RETURN result
+  END IF
+
+  LOOP i TO 0
+    IF num MORE THAN EQUAL arabicNum i
+
+      INSERT romanNum i TO result
+      RETURN result PLUS call toRoman( num MINUS arabicNum i )
+
+    END IF
+
+    i MINUS 1
+  END LOOP
